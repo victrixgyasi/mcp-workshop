@@ -27,7 +27,18 @@ A virtual environment keeps your project's dependencies isolated from other Pyth
 
 ```bash
 python3 -m venv venv
+```
+
+**Activate the virtual environment:**
+
+- **macOS/Linux:**
+```bash
 source venv/bin/activate
+```
+
+- **Windows:**
+```bash
+.\venv\Scripts\activate
 ```
 
 You should see `(venv)` appear at the start of your command prompt, indicating the virtual environment is active.
@@ -148,6 +159,8 @@ For security reasons, Gmail requires an "App Password" rather than your regular 
 4. Once 2FA is enabled, go back to **Security**
 5. Scroll down to "How you sign in to Google"
 6. Click on **App passwords** (or search for "App passwords" in settings)
+   - If you struggle to find it, you can go directly to: [https://myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
+
 7. You may need to sign in again
 8. Select **Mail** for the app and **Other** for the device
 9. Name it something like "MCP Email Server"
@@ -281,6 +294,28 @@ Your Gmail credentials might be incorrect. Verify:
 2. You're using the App Password, not your regular Gmail password
 3. The App Password has no spaces (should be 16 characters altogether)
 4. 2-Factor Authentication is enabled on your Google account
+
+### Claude Desktop doesn't seem to have access to the MCP server
+
+If Claude Desktop doesn't appear to recognize your MCP server:
+
+1. **Check the MCP Server Panel in Claude Desktop**
+   - Look in the MCP server indicator panel to see if your server appears there
+   
+   ![image.png](attachment:30171d62-7f53-48e2-975f-8bd7be581d31:image.png)
+
+2. **Verify the configuration in Claude Desktop settings**
+   - Open Claude Desktop
+   - Go to the **Settings panel** → **User** → **Settings** → **Developer** → **Edit config**
+   - This shows all your configured MCP servers and displays any errors that might be occurring
+
+   ![image.png](attachment:30a2ef37-a6b2-4019-87f3-63a5dc044a52:image.png)
+
+3. **Common issues to check**
+   - Make sure your config file is valid JSON (no trailing commas, all quotes properly closed)
+   - Verify the paths are absolute and correct
+   - Check that the Python executable and script file actually exist at those paths
+   - Look for any error messages displayed in the config editor
 
 ### Check the Logs
 
