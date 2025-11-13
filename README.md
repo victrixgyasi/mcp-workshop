@@ -29,13 +29,17 @@ pip install imapclient email-reply-parser
 **Tool to build:**
 `get_unread_emails` - Connects to Gmail via IMAP and retrieves unread emails with their content
 
-
-## Part 2: Generate Draft Replies
-
-**Install dependencies:**
-```bash
-pip install anthropic
-```
+## Part 2: Generate Draft Replies Using Sampling
 
 **Tool to build:**
-`create_draft_reply` - Takes an email message ID, uses Claude to generate a contextual reply, saves it as a draft in Gmail
+`create_draft_reply`
+
+Takes an email message ID, uses **MCP sampling** to request a reply from the client's Claude instance, then saves it as a draft in Gmail.
+
+**Expected behavior:**
+- Accept an email ID and email content as parameters
+- Send a **sampling request** to the MCP client with a prompt asking Claude to generate a reply
+- Receive the generated reply from the client
+- Connect to Gmail via SMTP/IMAP
+- Save the generated reply as a draft in the correct email thread
+- Return confirmation
