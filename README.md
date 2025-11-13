@@ -17,14 +17,8 @@ An MCP server that:
 
 - Completed the `exercise-1` branch
 - Gmail account with App Password
-- Anthropic API key
 
 ## Part 1: Fetch Unread Emails
-
-**Install dependencies:**
-```bash
-pip install imapclient email-reply-parser
-```
 
 **Tool to build:**
 `get_unread_emails` - Connects to Gmail via IMAP and retrieves unread emails with their content
