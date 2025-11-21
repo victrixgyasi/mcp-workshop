@@ -301,15 +301,11 @@ If Claude Desktop doesn't appear to recognize your MCP server:
 
 1. **Check the MCP Server Panel in Claude Desktop**
    - Look in the MCP server indicator panel to see if your server appears there
-   
-   ![image.png](attachment:30171d62-7f53-48e2-975f-8bd7be581d31:image.png)
 
 2. **Verify the configuration in Claude Desktop settings**
    - Open Claude Desktop
    - Go to the **Settings panel** → **User** → **Settings** → **Developer** → **Edit config**
    - This shows all your configured MCP servers and displays any errors that might be occurring
-
-   ![image.png](attachment:30a2ef37-a6b2-4019-87f3-63a5dc044a52:image.png)
 
 3. **Common issues to check**
    - Make sure your config file is valid JSON (no trailing commas, all quotes properly closed)
@@ -343,7 +339,7 @@ Look for recent log files and check for error messages.
 
 You've now built your first MCP server and extended Claude's capabilities. This same pattern can be used to connect any AI application to databases, APIs, file systems, and much more.
 
-## Review Questions
+## Quiz Questions
 
 <details>
 <summary><strong>1. What is an MCP Server?</strong></summary>
@@ -435,3 +431,6 @@ The virtual environment's Python has access to the packages installed in that en
 
 </details>
 
+## Exercise
+
+https://github.com/izaakrogan/mcp-exercise
