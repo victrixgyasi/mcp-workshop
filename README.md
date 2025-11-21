@@ -433,4 +433,4 @@ The virtual environment's Python has access to the packages installed in that en
 
 ## Exercise
 
-https://github.com/izaakrogan/mcp-exercise
+https://izaakrogan.github.io/mcp-exercise/
