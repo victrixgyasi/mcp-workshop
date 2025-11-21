@@ -21,7 +21,7 @@ An MCP server that:
 ## Part 1: Fetch Unread Emails
 
 **Tool to build:**
-`get_unread_emails` - Connects to Gmail via IMAP and retrieves unread emails with their content
+`get_unread_emails` - Connects to Gmail and retrieve unread emails
 
 ## Part 2: Generate Draft Replies Using Sampling
 
