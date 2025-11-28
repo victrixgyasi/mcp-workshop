@@ -37,3 +37,9 @@ Takes an email message ID, uses **MCP sampling** to request a reply from the cli
 - Connect to Gmail via SMTP/IMAP
 - Save the generated reply as a draft in the correct email thread
 - Return confirmation
+
+## Useful Resources
+
+[MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector): A browser-based debugging tool that lets you send requests to your server and inspect the responses. Invaluable when your tools aren't behaving as expected.
+
+[FastMCP Quickstart](https://gofastmcp.com/getting-started/welcome): A Python framework that eliminates MCP boilerplate. Instead of manually writing JSON schemas for your tools, you define regular Python functions with type hints—FastMCP generates the schemas automatically.
