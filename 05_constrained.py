@@ -56,27 +56,33 @@ ToolCall = Union[SendEmailCall, GetWeatherCall, SearchWebCall]
 def demo_outlines():
     """Use outlines library for constrained generation."""
     print("\n" + "=" * 60)
-    print("APPROACH 1: Using outlines library")
+    print("APPROACH 1: Using outlines library (optional)")
     print("=" * 60)
 
     try:
         import outlines
     except ImportError:
-        print("outlines not installed. Run: pip install outlines")
+        print("outlines not installed - skipping this demo.")
+        print("(outlines requires Rust compiler to install)")
         return
 
-    print("\nLoading model...")
-    model = outlines.models.transformers(MODEL_PATH)
-    generator = outlines.generate.json(model, ToolCall)
+    try:
+        print("\nLoading model...")
+        model = outlines.models.transformers(MODEL_PATH)
+        generator = outlines.generate.json(model, ToolCall)
 
-    print("Testing...\n")
-    for prompt in TEST_PROMPTS:
-        full_prompt = f"User request: {prompt}\nTool call JSON: "
-        result = generator(full_prompt)
-        print(f"INPUT:  {prompt}")
-        print(f"OUTPUT: {result}")
-        print(f"VALID:  Always (constrained)")
-        print("-" * 50)
+        print("Testing...\n")
+        for prompt in TEST_PROMPTS:
+            full_prompt = f"User request: {prompt}\nTool call JSON: "
+            result = generator(full_prompt)
+            print(f"INPUT:  {prompt}")
+            print(f"OUTPUT: {result}")
+            print(f"VALID:  Always (constrained)")
+            print("-" * 50)
+    except Exception as e:
+        print(f"outlines demo failed: {e}")
+        print("This can happen with certain Python/pydantic versions.")
+        print("See approach 2 below for the from-scratch version.")
 
 
 class SchemaConstrainedDecoder:
