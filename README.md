@@ -1,45 +1,77 @@
-# Build an Email MCP Server
+# Exercise 2: Build an Email Assistant MCP Server
 
 ## Your Challenge
 
-Build an MCP server that fetches unread emails from Gmail and generates AI-powered draft replies.
+Extend your email server to fetch unread emails and generate AI-powered draft replies using MCP sampling.
 
-**Feel free to get creative!** If you'd prefer to build a different MCP server that solves a problem you care about, go for it. This exercise is a framework the goal is to understand how MCP servers work by building something useful.
+Feel free to get creative! If you'd prefer to build something different that solves a problem you care about, go for it. The goal is to understand how MCP servers work by building something useful.
 
-## What You're Building (Suggested Project)
+## What You're Building
 
 An MCP server that:
+
 1. Fetches your unread emails from Gmail
-2. Generates AI-powered draft replies using Claude
+2. Generates draft replies using Claude (via MCP sampling)
 3. Saves those drafts in Gmail, ready for you to review and send
 
 ## Prerequisites
 
-- Completed the `exercise-1` branch
-- Gmail account with App Password
+- Completed Exercise 1 (email server with `send_email` tool working)
+- Gmail App Password already configured
+
+---
 
 ## Part 1: Fetch Unread Emails
 
-**Tool to build:**
-`get_unread_emails` - Connects to Gmail and retrieve unread emails
+**Tool to build:** `get_unread_emails`
+
+Connect to Gmail and retrieve unread emails. You used `smtplib` for sending in Exercise 1; now you'll need `imaplib` for reading.
+
+**Expected behaviour:**
+- Connect to Gmail via IMAP
+- Fetch unread messages
+- Return message ID, sender, subject, and body for each
+
+---
 
 ## Part 2: Generate Draft Replies Using Sampling
 
-**Tool to build:**
-`create_draft_reply`
+**Tool to build:** `create_draft_reply`
 
-Takes an email message ID, uses **MCP sampling** to request a reply from the client's Claude instance, then saves it as a draft in Gmail.
+Takes an email message ID, uses MCP sampling to request a reply from the client's Claude instance, then saves it as a draft in Gmail.
 
-**Expected behavior:**
+**Expected behaviour:**
 - Accept an email ID and email content as parameters
-- Send a **sampling request** to the MCP client with a prompt asking Claude to generate a reply
-- Receive the generated reply from the client
-- Connect to Gmail via SMTP/IMAP
-- Save the generated reply as a draft in the correct email thread
+- Send a sampling request to the MCP client asking Claude to generate a reply
+- Receive the generated reply
+- Save it as a draft in Gmail
 - Return confirmation
+
+**Note:** MCP Inspector does not support sampling. You'll need to test this part with Claude Desktop.
+
+---
 
 ## Useful Resources
 
-[MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector): A browser-based debugging tool that lets you send requests to your server and inspect the responses. Invaluable when your tools aren't behaving as expected.
+- [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) - Browser-based debugging tool (Part 1 only, doesn't support sampling)
+- [FastMCP Quickstart](https://gofastmcp.com/getting-started/quickstart) - Python framework that eliminates MCP boilerplate
+- [MCP Sampling Documentation](https://modelcontextprotocol.io/docs/concepts/sampling) - How servers request LLM completions from clients
 
-[FastMCP Quickstart](https://gofastmcp.com/getting-started/welcome): A Python framework that eliminates MCP boilerplate. Instead of manually writing JSON schemas for your tools, you define regular Python functions with type hints—FastMCP generates the schemas automatically.
+---
+
+## Stretch Goals
+
+### Smarter drafts with more context
+
+The real power of MCP is connecting multiple data sources. What context would help Claude write better replies?
+
+Some ideas:
+- Previous emails with this sender
+- A style guide from Notion or Google Docs
+- Company FAQ or knowledge base
+- Your calendar for availability
+- CRM data about the sender
+
+You could build these as additional tools, or connect to existing MCP servers.
+
+Get creative. What context would make *your* email replies better?
