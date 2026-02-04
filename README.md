@@ -8,7 +8,7 @@ An MCP server is a programme that extends Claude's capabilities by giving it acc
 
 ## Prerequisites
 
-- **Claude Desktop** installed on your computer
+- **Claude Desktop** installed on your computer (Linux users: Claude Desktop is not officially available for Linux, but you can use [claude-desktop-debian](https://github.com/aaddrick/claude-desktop-debian) to install it)
 - **Python 3.10 or higher** installed
 - A **Gmail account** (we'll use Gmail's SMTP server)
 
