@@ -154,28 +154,14 @@ For security reasons, Gmail requires an "App Password" rather than your regular 
 
 Now you need to tell Claude Desktop about your new MCP server.
 
-### Find Your Config File
+### Open the Config File
 
-The location depends on your operating system:
+1. Open **Claude Desktop**
+2. Click the **Settings** icon (gear icon) in the top-right corner
+3. Go to **Developer**
+4. Click **Edit Config**
 
-**macOS:**
-```
-~/Library/Application Support/Claude/claude_desktop_config.json
-```
-
-**Windows:**
-```
-%APPDATA%\Claude\claude_desktop_config.json
-```
-
-**Linux:**
-```
-~/.config/Claude/claude_desktop_config.json
-```
-
-### Edit the Config File
-
-Open the config file in a text editor. If the file doesn't exist yet, create it.
+This will open your `claude_desktop_config.json` file in your default text editor. If the file is empty or doesn't exist yet, that's fine.
 
 Add the following configuration (or add to the existing `mcpServers` section if you already have other servers):
 
